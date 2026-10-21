@@ -27,8 +27,8 @@ docker run --rm lastpatriot/random-string:1.1
 ## Deploy to Kubernetes
 
 ```bash
-kubectl create deployment log-output --image=lastpatriot/random-string:1.1
-kubectl logs -f deployment/log-output
+kubectl apply -f manifests/deployment.yaml
+kubectl logs -f deployment/hashgenerator-dep
 ```
 
 Image: `lastpatriot/random-string:1.1`
