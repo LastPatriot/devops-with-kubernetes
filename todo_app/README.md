@@ -24,8 +24,8 @@ Written in Rust (axum).
 ## Deploy to Kubernetes
 
 ```bash
-   kubectl create deployment todo-app --image=lastpatriot/todo-app:1.2
-   kubectl logs deployment/todo-app
+kubectl apply -f manifests/deployment.yaml
+kubectl logs deployment/todo-app
 ```
 
 Image: `lastpatriot/todo-app:1.2`
