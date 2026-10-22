@@ -25,13 +25,13 @@ docker run --rm -e PORT=8080 -p 8080:8080 lastpatriot/todo-app:1.5
 
 ## Deploy to Kubernetes
 
-The cluster needs port 8082 mapped to NodePort 30080:
+The cluster needs port 8081 mapped to the load balancer:
 
 ```bash
 k3d cluster create --port 8082:30080@agent:0 -p 8081:80@loadbalancer --agents 2
 ```
 
-Apply the manifests:
+Apply the deployment, ClusterIP Service and Ingress:
 
 ```bash
 kubectl apply -f manifests/
@@ -39,8 +39,8 @@ kubectl apply -f manifests/
 
 ## Access the app
 
-The app is exposed with a NodePort Service on port 30080.
+The app is exposed through an Ingress, which routes `/` to `todo-app-svc` (port 2345 → container port 3000).
 
-Open http://localhost:8082
+Open http://localhost:8081
 
 Image: `lastpatriot/todo-app:1.5`
