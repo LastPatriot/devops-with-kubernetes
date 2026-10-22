@@ -14,4 +14,7 @@ spec:
     spec:
       containers:
         - name: todo-app
-          image: lastpatriot/todo-app:1.2
+          image: lastpatriot/todo-app:1.5
+          env:
+            - name: PORT
+              value: "3000"

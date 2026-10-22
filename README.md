@@ -10,3 +10,4 @@ Each exercise has a GitHub release tagged with the exercise number.
 - [1.2](https://github.com/LastPatriot/devops-with-kubernetes/tree/1.2/todo_app)
 - [1.3](https://github.com/LastPatriot/devops-with-kubernetes/tree/1.3/log_output)
 - [1.4](https://github.com/LastPatriot/devops-with-kubernetes/tree/1.4/todo_app)
+- [1.5](https://github.com/LastPatriot/devops-with-kubernetes/tree/1.5/todo_app)
