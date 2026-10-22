@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hashresponse-dep
+  name: log-output-dep
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hashresponse
+      app: log-output
   template:
     metadata:
       labels:
-        app: hashresponse
+        app: log-output
     spec:
       containers:
-        - name: hashresponse
+        - name: log-output
           image: lastpatriot/random-string:1.7
           env:
             - name: PORT
