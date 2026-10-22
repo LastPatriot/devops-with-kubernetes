@@ -25,18 +25,22 @@ docker run --rm -e PORT=8080 -p 8080:8080 lastpatriot/todo-app:1.5
 
 ## Deploy to Kubernetes
 
+The cluster needs port 8082 mapped to NodePort 30080:
+
 ```bash
-kubectl apply -f manifests/deployment.yaml
-kubectl logs deployment/todo-app
+k3d cluster create --port 8082:30080@agent:0 -p 8081:80@loadbalancer --agents 2
+```
+
+Apply the manifests:
+
+```bash
+kubectl apply -f manifests/
 ```
 
 ## Access the app
 
-```bash
-kubectl get pods
-kubectl port-forward todo-app-xxxxxxxx-xxxx 3003:3000
-```
+The app is exposed with a NodePort Service on port 30080.
 
-Open http://localhost:3003
+Open http://localhost:8082
 
 Image: `lastpatriot/todo-app:1.5`
