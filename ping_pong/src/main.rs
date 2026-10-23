@@ -16,5 +16,4 @@ async fn main() {
     let listener = tokio::net::TcpListener::bind(addr).await.expect("Could not bind to port");
     println!("Listening on {}", listener.local_addr().unwrap());
     axum::serve(listener, app).await.expect("Could not start server");
-
 }

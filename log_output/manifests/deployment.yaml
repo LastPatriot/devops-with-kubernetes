@@ -12,9 +12,20 @@ spec:
       labels:
         app: log-output
     spec:
+      volumes:
+        - name: shared-logs
+          emptyDir: {}
       containers:
-        - name: log-output
-          image: lastpatriot/random-string:1.7
+        - name: writer
+          image: lastpatriot/log-writer:1.10
+          volumeMounts:
+            - name: shared-logs
+              mountPath: /usr/src/app/files
+        - name: reader
+          image: lastpatriot/log-reader:1.10
           env:
             - name: PORT
               value: "3000"
+          volumeMounts:
+            - name: shared-logs
+              mountPath: /usr/src/app/files

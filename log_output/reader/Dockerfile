@@ -5,5 +5,5 @@ COPY src ./src
 RUN cargo build --release
 
 FROM debian:bookworm-slim
-COPY --from=build /app/target/release/random-string /usr/local/bin/random-string
-CMD ["random-string"]
+COPY --from=build /app/target/release/reader /usr/local/bin/reader
+CMD ["reader"]
